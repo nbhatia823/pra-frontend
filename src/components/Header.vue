@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <img id="logo" width="100px" height="100px" src="../assets/logo.png" />
+    <img id="logo" width="225" src="../assets/logo.png" />
     <Navbar id="navbar" />
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
 #header {
   display: grid;
 
-  grid-template-columns: 0.1fr 1fr 0.1fr;
+  grid-template-columns: 0.7fr 1fr 0.1fr;
   grid-template-rows: auto;
   grid-template-areas: "logo navbar";
 

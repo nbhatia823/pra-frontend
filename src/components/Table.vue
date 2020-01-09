@@ -228,7 +228,7 @@
           :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['issheriffsdept']"
           sortable
         >
-          <span class="tag is-medium">{{ props.row.issheriffsdept }}</span>
+          <span class="tag is-medium">{{ props.row.issheriffsdept ? "Bookings" : "Arrests" }}</span>
         </b-table-column>
         <b-table-column
           field="variableschecked"

@@ -6,9 +6,7 @@
         id="columnOptions"
         slot="trigger"
         aria-controls="contentIdForA11y1"
-      >
-        Show/Hide Column Option
-      </button>
+      >Show/Hide Column Option</button>
       <div id="toggleArea">
         <div class="checkboxes content">
           <h4 class="checkboxHeader">Initial information:</h4>
@@ -18,23 +16,23 @@
               :key="name"
               class="control"
             >
-              <b-checkbox v-model="VIEWABLE_COLUMNS['INITIAL_INFO'][name]">{{
+              <b-checkbox v-model="VIEWABLE_COLUMNS['INITIAL_INFO'][name]">
+                {{
                 COLUMNS_TO_LABELS[name]
-              }}</b-checkbox>
+                }}
+              </b-checkbox>
             </div>
           </div>
         </div>
         <div class="checkboxes content">
           <h4 class="checkboxHeader">Dates:</h4>
           <div class="checkboxDiv">
-            <div
-              v-for="(state, name) in VIEWABLE_COLUMNS['DATES']"
-              :key="name"
-              class="control"
-            >
-              <b-checkbox v-model="VIEWABLE_COLUMNS['DATES'][name]">{{
+            <div v-for="(state, name) in VIEWABLE_COLUMNS['DATES']" :key="name" class="control">
+              <b-checkbox v-model="VIEWABLE_COLUMNS['DATES'][name]">
+                {{
                 COLUMNS_TO_LABELS[name]
-              }}</b-checkbox>
+                }}
+              </b-checkbox>
             </div>
           </div>
         </div>
@@ -46,23 +44,23 @@
               :key="name"
               class="control"
             >
-              <b-checkbox v-model="VIEWABLE_COLUMNS['CURRENT_INFO'][name]">{{
+              <b-checkbox v-model="VIEWABLE_COLUMNS['CURRENT_INFO'][name]">
+                {{
                 COLUMNS_TO_LABELS[name]
-              }}</b-checkbox>
+                }}
+              </b-checkbox>
             </div>
           </div>
         </div>
         <div class="checkboxes content">
           <h4 class="checkboxHeader">Analysis:</h4>
           <div class="checkboxDiv">
-            <div
-              v-for="(state, name) in VIEWABLE_COLUMNS['ANALYSIS']"
-              :key="name"
-              class="control"
-            >
-              <b-checkbox v-model="VIEWABLE_COLUMNS['ANALYSIS'][name]">{{
+            <div v-for="(state, name) in VIEWABLE_COLUMNS['ANALYSIS']" :key="name" class="control">
+              <b-checkbox v-model="VIEWABLE_COLUMNS['ANALYSIS'][name]">
+                {{
                 COLUMNS_TO_LABELS[name]
-              }}</b-checkbox>
+                }}
+              </b-checkbox>
             </div>
           </div>
         </div>
@@ -70,7 +68,7 @@
     </b-collapse>
     <!-- <div class="buttons">
       <b-button tag="router-link" to="/form" type="is-link">Create PRA</b-button>
-    </div> -->
+    </div>-->
     <b-table
       :data="data"
       :columns="columns"
@@ -94,9 +92,7 @@
           sortable
           :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['county']"
         >
-          <span class="tag is-medium">
-            {{ props.row.county }}
-          </span>
+          <span class="tag is-medium">{{ props.row.county }}</span>
         </b-table-column>
         <b-table-column
           field="lea"
@@ -106,9 +102,7 @@
           sortable
           :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['lea']"
         >
-          <span class="tag is-medium">
-            {{ props.row.lea }}
-          </span>
+          <span class="tag is-medium">{{ props.row.lea }}</span>
         </b-table-column>
         <b-table-column
           field="currentstatus"
@@ -118,23 +112,21 @@
           :visible="VIEWABLE_COLUMNS['CURRENT_INFO']['currentstatus']"
           sortable
         >
-          <span class="tag is-medium">
-            {{ props.row.currentstatus }}
-          </span>
+          <span class="tag is-medium">{{ props.row.currentstatus }}</span>
         </b-table-column>
         <b-table-column
           field="dateofrequest"
           label="Date of request"
           centered
-          :visible="VIEWABLE_COLUMNS['DATES']['dateofrequest']"
+          :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['dateofrequest']"
           sortable
           :custom-sort="dateOfRequestSort"
         >
-          <span class="tag  is-medium">
+          <span class="tag is-medium">
             {{
-              props.row.dateofrequest
-                ? new Date(props.row.dateofrequest).toLocaleDateString()
-                : ""
+            props.row.dateofrequest
+            ? new Date(props.row.dateofrequest).toLocaleDateString()
+            : ""
             }}
           </span>
         </b-table-column>
@@ -146,11 +138,11 @@
           sortable
           :custom-sort="startDateRequestedSort"
         >
-          <span class="tag is-medium ">
+          <span class="tag is-medium">
             {{
-              props.row.startdaterequested
-                ? new Date(props.row.startdaterequested).toLocaleDateString()
-                : ""
+            props.row.startdaterequested
+            ? new Date(props.row.startdaterequested).toLocaleDateString()
+            : ""
             }}
           </span>
         </b-table-column>
@@ -162,11 +154,11 @@
           sortable
           :custom-sort="endDateRequestedSort"
         >
-          <span class="tag is-medium ">
+          <span class="tag is-medium">
             {{
-              props.row.enddaterequested
-                ? new Date(props.row.enddaterequested).toLocaleDateString()
-                : ""
+            props.row.enddaterequested
+            ? new Date(props.row.enddaterequested).toLocaleDateString()
+            : ""
             }}
           </span>
         </b-table-column>
@@ -178,11 +170,11 @@
           sortable
           :custom-sort="startDateReturnedSort"
         >
-          <span class="tag  is-medium">
+          <span class="tag is-medium">
             {{
-              props.row.startdatereturned
-                ? new Date(props.row.startdatereturned).toLocaleDateString()
-                : ""
+            props.row.startdatereturned
+            ? new Date(props.row.startdatereturned).toLocaleDateString()
+            : ""
             }}
           </span>
         </b-table-column>
@@ -194,11 +186,11 @@
           sortable
           :custom-sort="endDateReturnedSort"
         >
-          <span class="tag  is-medium">
+          <span class="tag is-medium">
             {{
-              props.row.enddatereturned
-                ? new Date(props.row.enddatereturned).toLocaleDateString()
-                : ""
+            props.row.enddatereturned
+            ? new Date(props.row.enddatereturned).toLocaleDateString()
+            : ""
             }}
           </span>
         </b-table-column>
@@ -212,9 +204,9 @@
         >
           <span class="tag is-medium">
             {{
-              props.row.dateoflastcontact
-                ? new Date(props.row.dateoflastcontact).toLocaleDateString()
-                : ""
+            props.row.dateoflastcontact
+            ? new Date(props.row.dateoflastcontact).toLocaleDateString()
+            : ""
             }}
           </span>
         </b-table-column>
@@ -226,9 +218,7 @@
           :visible="VIEWABLE_COLUMNS['CURRENT_INFO']['leadmember']"
           sortable
         >
-          <span class="tag is-info is-medium">
-            {{ props.row.leadmember }}
-          </span>
+          <span class="tag is-info is-medium">{{ props.row.leadmember }}</span>
         </b-table-column>
         <b-table-column
           field="issheriffsdept"
@@ -238,9 +228,7 @@
           :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['issheriffsdept']"
           sortable
         >
-          <span class="tag is-medium">
-            {{ props.row.issheriffsdept }}
-          </span>
+          <span class="tag is-medium">{{ props.row.issheriffsdept }}</span>
         </b-table-column>
         <b-table-column
           field="variableschecked"
@@ -250,9 +238,7 @@
           :visible="VIEWABLE_COLUMNS['ANALYSIS']['variableschecked']"
           sortable
         >
-          <span class="tag is-medium">
-            {{ props.row.variableschecked }}
-          </span>
+          <span class="tag is-medium">{{ props.row.variableschecked }}</span>
         </b-table-column>
         <b-table-column
           field="variablescomplete"
@@ -262,9 +248,17 @@
           :visible="VIEWABLE_COLUMNS['ANALYSIS']['variablescomplete']"
           sortable
         >
-          <span class="tag is-medium">
-            {{ props.row.variablescomplete }}
-          </span>
+          <span class="tag is-medium">{{ props.row.variablescomplete }}</span>
+        </b-table-column>
+        <b-table-column
+          field="dataqualitychecked"
+          label="Quality checked"
+          searchable
+          centered
+          :visible="VIEWABLE_COLUMNS['ANALYSIS']['dataqualitychecked']"
+          sortable
+        >
+          <span class="tag is-medium">{{ props.row.dataqualitychecked }}</span>
         </b-table-column>
         <b-table-column
           field="dataactionable"
@@ -274,9 +268,7 @@
           :visible="VIEWABLE_COLUMNS['ANALYSIS']['dataactionable']"
           sortable
         >
-          <span class="tag is-medium">
-            {{ props.row.dataactionable }}
-          </span>
+          <span class="tag is-medium">{{ props.row.dataactionable }}</span>
         </b-table-column>
         <b-table-column
           field="datacleaned"
@@ -286,9 +278,7 @@
           :visible="VIEWABLE_COLUMNS['ANALYSIS']['datacleaned']"
           sortable
         >
-          <span class="tag is-medium">
-            {{ props.row.datacleaned }}
-          </span>
+          <span class="tag is-medium">{{ props.row.datacleaned }}</span>
         </b-table-column>
         <b-table-column
           field="datageocoded"
@@ -298,9 +288,7 @@
           :visible="VIEWABLE_COLUMNS['ANALYSIS']['datageocoded']"
           sortable
         >
-          <span class="tag is-medium">
-            {{ props.row.datageocoded }}
-          </span>
+          <span class="tag is-medium">{{ props.row.datageocoded }}</span>
         </b-table-column>
         <b-table-column
           field="dataanalyzed"
@@ -310,9 +298,7 @@
           :visible="VIEWABLE_COLUMNS['ANALYSIS']['dataanalyzed']"
           sortable
         >
-          <span class="tag is-medium">
-            {{ props.row.dataanalyzed }}
-          </span>
+          <span class="tag is-medium">{{ props.row.dataanalyzed }}</span>
         </b-table-column>
         <b-table-column centered>
           <b-button
@@ -327,8 +313,7 @@
                 updating: true
               }
             }"
-            >View</b-button
-          >
+          >View</b-button>
         </b-table-column>
       </template>
 

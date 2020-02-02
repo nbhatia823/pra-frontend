@@ -30,7 +30,7 @@ export default {
       const vm = this;
       axios
         .post(
-          `http://localhost:5000/api/login`,
+          `https://pra-tracking-dev.herokuapp.com/api/login`,
           JSON.stringify(vm.login_info),
           {
             headers: { "Content-type": "application/json" }

@@ -231,6 +231,22 @@
           <span class="tag is-medium">{{ props.row.issheriffsdept ? "Bookings" : "Arrests" }}</span>
         </b-table-column>
         <b-table-column
+          field="datereceived"
+          label="Date received"
+          centered
+          :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['datereceived']"
+          sortable
+          :custom-sort="dateReceivedSort"
+        >
+          <span class="tag is-medium">
+            {{
+            props.row.datereceived
+            ? new Date(props.row.datereceived).toLocaleDateString()
+            : ""
+            }}
+          </span>
+        </b-table-column>
+        <b-table-column
           field="variableschecked"
           label="Variables checked"
           searchable
@@ -351,6 +367,13 @@ export default {
       .then(response => (this.data = response.data));
   },
   methods: {
+    dateOfRequestSort(a, b, isAsc) {
+      return isAsc
+        ? new Date(b.dateofrequest).getTime() -
+            new Date(a.dateofrequest).getTime()
+        : new Date(a.dateofrequest).getTime() -
+            new Date(b.dateofrequest).getTime();
+    },
     dateOfRequestSort(a, b, isAsc) {
       return isAsc
         ? new Date(b.dateofrequest).getTime() -

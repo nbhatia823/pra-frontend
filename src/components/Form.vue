@@ -7,8 +7,7 @@
         class="progress is-small is-success"
         :value="progress"
         max="100"
-        >15%</progress
-      >
+      >15%</progress>
     </section>
     <section id="form">
       <section class="formSection" id="initialData">
@@ -25,11 +24,7 @@
               icon="calendar-today"
             ></b-datepicker>
           </b-field>
-          <b-field
-            expanded
-            label="County"
-            :type="{ 'is-success': data.county }"
-          >
+          <b-field expanded label="County" :type="{ 'is-success': data.county }">
             <b-input type="text" v-model="data.county"></b-input>
           </b-field>
 
@@ -37,10 +32,7 @@
             <b-input v-model="data.lea"></b-input>
           </b-field>
           <b-field label="Sheriff's dept?">
-            <b-checkbox
-              v-model="data.issheriffsdept"
-              id="sheriffsCheckbox"
-            ></b-checkbox>
+            <b-checkbox v-model="data.issheriffsdept" id="sheriffsCheckbox"></b-checkbox>
           </b-field>
         </b-field>
 
@@ -50,48 +42,22 @@
             label="Initial contact name"
             :type="{ 'is-success': data.initialcontact.name }"
           >
-            <b-input
-              placeholder="Name"
-              v-model="data.initialcontact.name"
-            ></b-input>
+            <b-input placeholder="Name" v-model="data.initialcontact.name"></b-input>
           </b-field>
-          <b-field
-            label="Method"
-            :type="{ 'is-success': data.initialcontact.method }"
-          >
-            <b-select
-              placeholder="Select a method"
-              required
-              v-model="data.initialcontact.method"
-            >
-              <option
-                v-for="method in CONTACT_METHODS"
-                :key="method"
-                :value="method"
-                >{{ method }}</option
-              >
+          <b-field label="Method" :type="{ 'is-success': data.initialcontact.method }">
+            <b-select placeholder="Select a method" required v-model="data.initialcontact.method">
+              <option v-for="method in CONTACT_METHODS" :key="method" :value="method">{{ method }}</option>
             </b-select>
           </b-field>
-          <b-field
-            expanded
-            label="Info"
-            :type="{ 'is-success': data.initialcontact.info }"
-          >
-            <b-input
-              placeholder="Contact info"
-              v-model="data.initialcontact.info"
-            ></b-input>
+          <b-field expanded label="Info" :type="{ 'is-success': data.initialcontact.info }">
+            <b-input placeholder="Contact info" v-model="data.initialcontact.info"></b-input>
           </b-field>
         </b-field>
         <b-field expanded label="Link to PRA Request">
           <b-input type="text" v-model="data.linktoprarequest"></b-input>
         </b-field>
         <b-field label="Comments">
-          <b-input
-            maxlength="2000"
-            v-model="data.comments"
-            type="textarea"
-          ></b-input>
+          <b-input maxlength="2000" v-model="data.comments" type="textarea"></b-input>
         </b-field>
       </section>
       <section class="formSection">
@@ -156,35 +122,20 @@
           <b-field>
             <b-input v-model="newVariable"></b-input>
           </b-field>
-          <b-button v-on:click="addVariable" type="is-primary"
-            >Add variable</b-button
-          >
+          <b-button v-on:click="addVariable" type="is-primary">Add variable</b-button>
         </b-field>
 
         <div id="variables" :key="variablesKey">
-          <div
-            v-for="column in variableColumns"
-            :key="column[0]"
-            class="variableColumn"
-          >
+          <div v-for="column in variableColumns" :key="column[0]" class="variableColumn">
             <div class="variableInfoHeader">
               <div></div>
               <h6 class="alignTextLeft">Req.</h6>
               <h6 class="alignTextLeft">Rec.</h6>
             </div>
-            <div
-              v-for="variable in column"
-              :key="variable"
-              class="variableInfo"
-            >
+            <div v-for="variable in column" :key="variable" class="variableInfo">
               <span class="alignTextLeft">{{ variable }}</span>
-              <b-switch
-                v-model="data.variables[variable]['requested']"
-              ></b-switch>
-              <b-switch
-                type="is-success"
-                v-model="data.variables[variable]['received']"
-              ></b-switch>
+              <b-switch v-model="data.variables[variable]['requested']"></b-switch>
+              <b-switch type="is-success" v-model="data.variables[variable]['received']"></b-switch>
               <div class="buttons">
                 <b-button
                   type="is-danger"
@@ -219,25 +170,12 @@
           </b-field>
 
           <b-field label="Status" :type="{ 'is-success': data.currentstatus }">
-            <b-select
-              placeholder="Select a status"
-              required
-              v-model="data.currentstatus"
-            >
-              <option
-                v-for="status in STATUSES"
-                :key="status"
-                :value="status"
-                >{{ status }}</option
-              >
+            <b-select placeholder="Select a status" required v-model="data.currentstatus">
+              <option v-for="status in STATUSES" :key="status" :value="status">{{ status }}</option>
             </b-select>
           </b-field>
 
-          <b-field
-            expanded
-            label="Lead member"
-            :type="{ 'is-success': data.leadmember }"
-          >
+          <b-field expanded label="Lead member" :type="{ 'is-success': data.leadmember }">
             <b-input type="text" v-model="data.leadmember"></b-input>
           </b-field>
         </b-field>
@@ -247,43 +185,33 @@
             label="Current contact name"
             :type="{ 'is-success': data.currentcontact.name }"
           >
-            <b-input
-              placeholder="Name"
-              v-model="data.currentcontact.name"
-            ></b-input>
+            <b-input placeholder="Name" v-model="data.currentcontact.name"></b-input>
           </b-field>
-          <b-field
-            label="Method"
-            :type="{ 'is-success': data.currentcontact.method }"
-          >
-            <b-select
-              placeholder="Select a method"
-              required
-              v-model="data.currentcontact.method"
-            >
-              <option
-                v-for="method in CONTACT_METHODS"
-                :key="method"
-                :value="method"
-                >{{ method }}</option
-              >
+          <b-field label="Method" :type="{ 'is-success': data.currentcontact.method }">
+            <b-select placeholder="Select a method" required v-model="data.currentcontact.method">
+              <option v-for="method in CONTACT_METHODS" :key="method" :value="method">{{ method }}</option>
             </b-select>
           </b-field>
-          <b-field
-            expanded
-            label="Info"
-            :type="{ 'is-success': data.currentcontact.info }"
-          >
-            <b-input
-              placeholder="Contact info"
-              v-model="data.currentcontact.info"
-            ></b-input>
+          <b-field expanded label="Info" :type="{ 'is-success': data.currentcontact.info }">
+            <b-input placeholder="Contact info" v-model="data.currentcontact.info"></b-input>
           </b-field>
         </b-field>
       </section>
       <section class="formSection">
         <h1 class="title sectionHeader">Data processing</h1>
         <b-field grouped>
+          <b-field
+            expanded
+            label="Date received"
+            :type="{ 'is-success': data.datereceived instanceof Date }"
+          >
+            <b-datepicker
+              editable
+              v-model="data.datereceived"
+              placeholder="Click to select..."
+              icon="calendar-today"
+            ></b-datepicker>
+          </b-field>
           <b-field label="Variables checked" expanded>
             <b-checkbox v-model="data.variableschecked"></b-checkbox>
           </b-field>
@@ -313,9 +241,7 @@
           <b-field expanded>
             <b-input v-model="currentUpdate"></b-input>
           </b-field>
-          <b-button v-on:click="submitUpdate" type="is-primary"
-            >Add update</b-button
-          >
+          <b-button v-on:click="submitUpdate" type="is-primary">Add update</b-button>
         </b-field>
         <b-table :data="data.updates" :columns="updatesColumns"></b-table>
       </section>
@@ -326,8 +252,7 @@
           id="createButton"
           v-on:click="createPRA"
           type="is-success"
-          >Create</b-button
-        >
+        >Create</b-button>
       </div>
       <div v-if="updating">
         <b-button
@@ -336,8 +261,7 @@
           id="createButton"
           v-on:click="updatePRA"
           type="is-success"
-          >Update</b-button
-        >
+        >Update</b-button>
         <span id="space" />
         <b-button
           rounded
@@ -345,8 +269,7 @@
           id="deleteButton"
           v-on:click="confirmDeletePRA"
           type="is-danger"
-          >Delete</b-button
-        >
+        >Delete</b-button>
       </div>
       <b-button
         rounded
@@ -355,8 +278,7 @@
         v-on:click="confirmCancelPRA"
         type="is-primary"
         outlined
-        >Cancel</b-button
-      >
+      >Cancel</b-button>
     </section>
   </section>
 </template>
@@ -488,6 +410,13 @@ export default {
           this.data,
           "enddaterequested",
           new Date(this.data["enddaterequested"])
+        );
+      }
+      if ("datereceived" in this.data && this.data["datereceived"] != null) {
+        this.$set(
+          this.data,
+          "datereceived",
+          new Date(this.data["datereceived"])
         );
       }
       if (

@@ -18,6 +18,7 @@ export const VIEWABLE_COLUMNS = {
     dateoflastcontact: false
   },
   ANALYSIS: {
+    datereceived: true,
     variableschecked: false,
     variablescomplete: false,
     dataqualitychecked: false,
@@ -45,8 +46,10 @@ const ALL = [
   { datacleaned: "Data cleaned?" },
   { datageocoded: "Data geocoded?" },
   { dataqualitychecked: "Data quality checked?" },
+  { datatype: "Data type" },
   { dateoflastcontact: "Date of last contact" },
   { dateofrequest: "Date of request" },
+  { datereceived: "Date received" },
   { enddaterequested: "End date requested" },
   { enddatereturned: "End date returned" },
   { initialcontact: "Initial contact" }, // name, method, info
@@ -75,6 +78,8 @@ export const COLUMNS_TO_LABELS = {
   leadmember: "Lead member",
   dateoflastcontact: "Date of last contact",
   issheriffsdept: "Sheriffs dept.",
+  datatype: "Data type",
+  datereceived: "Date received",
   variableschecked: "Variables checked",
   variablescomplete: "Variables complete",
   dataqualitychecked: "Quality checked",

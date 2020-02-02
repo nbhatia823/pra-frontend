@@ -4,18 +4,11 @@ import App from "./App.vue";
 import Form from "./components/Form.vue";
 import Home from "./components/Home.vue";
 import Buefy from "buefy";
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// import { faTrash } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-// import config from "buefy/src/utils/config";
-// config.defaultIconPack = "fas";
 import "buefy/dist/buefy.css";
 
 Vue.config.productionTip = false;
-// Vue.component("vue-fontawesome", FontAwesomeIcon);
 
 Vue.use(Buefy, {
-  // defaultIconComponent: "vue-fontawesome",
   defaultIconPack: "fas"
 });
 

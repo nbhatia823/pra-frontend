@@ -1,19 +1,30 @@
 <template>
-  <div id="home">
-    <Header id="header" />
-    <Table id="table" />
+  <div>
+    <div v-if="ACCESS_CONTROL['access'] != 'none'" id="home">
+      <Header id="header" />
+      <Table id="table" />
+    </div>
+    <Login v-if="ACCESS_CONTROL['access'] == 'none'" id="login" />
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
 import Table from "./Table.vue";
+import Login from "./Login.vue";
+import { ACCESS_CONTROL } from "../definitions.js";
 
 export default {
   name: "app",
   components: {
     Header,
-    Table
+    Table,
+    Login
+  },
+  data: function() {
+    return {
+      ACCESS_CONTROL
+    };
   }
 };
 </script>
@@ -43,5 +54,16 @@ export default {
 
 #table {
   grid-area: table;
+}
+
+#login {
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 30%;
 }
 </style>

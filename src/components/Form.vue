@@ -34,8 +34,8 @@
           <b-field label="Sheriff's deptartment?">
             <b-checkbox v-model="data.issheriffsdept" id="sheriffsCheckbox"></b-checkbox>
           </b-field>
-          <b-field>
-            <b-select label="Data type" placeholder="Select data type" v-model="data.datatype">
+          <b-field label="Data type">
+            <b-select placeholder="Select data type" v-model="data.datatype">
               <option value="Arrests">Arrests</option>
               <option v-if="!updating" value="Bookings">Bookings (also creates Arrests entry)</option>
               <option v-if="updating" value="Bookings">Bookings</option>
@@ -252,32 +252,34 @@
         </b-field>
         <b-table :data="data.updates" :columns="updatesColumns"></b-table>
       </section>
-      <div v-if="!updating">
-        <b-button
-          rounded
-          size="is-large"
-          id="createButton"
-          v-on:click="createPRA"
-          type="is-success"
-        >Create</b-button>
-      </div>
-      <div v-if="updating">
-        <b-button
-          rounded
-          size="is-large"
-          id="createButton"
-          v-on:click="updatePRA"
-          type="is-success"
-        >Update</b-button>
-        <span id="space" />
-        <b-button
-          rounded
-          size="is-large"
-          id="deleteButton"
-          v-on:click="confirmDeletePRA"
-          type="is-danger"
-        >Delete</b-button>
-      </div>
+      <section v-if="editable">
+        <div v-if="!updating">
+          <b-button
+            rounded
+            size="is-large"
+            id="createButton"
+            v-on:click="createPRA"
+            type="is-success"
+          >Create</b-button>
+        </div>
+        <div v-if="updating">
+          <b-button
+            rounded
+            size="is-large"
+            id="createButton"
+            v-on:click="updatePRA"
+            type="is-success"
+          >Update</b-button>
+          <span id="space" />
+          <b-button
+            rounded
+            size="is-large"
+            id="deleteButton"
+            v-on:click="confirmDeletePRA"
+            type="is-danger"
+          >Delete</b-button>
+        </div>
+      </section>
       <b-button
         rounded
         size="is-medium"
@@ -294,7 +296,8 @@
 import {
   STATUSES,
   CONTACT_METHODS,
-  INITIAL_VARIABLES
+  INITIAL_VARIABLES,
+  ACCESS_CONTROL
 } from "../definitions.js";
 import Header from "./Header.vue";
 import axios from "axios";
@@ -331,10 +334,13 @@ export default {
       ],
       currentUpdate: "",
       newVariable: "",
-      variablesKey: 0
+      variablesKey: 0,
+      editable: false,
+      ACCESS_CONTROL
     };
   },
   created: function() {
+    this.editable = this.ACCESS_CONTROL["access"] == "admin";
     if (!this.updating) {
       this.data = {};
       this.prepareNewForm();
@@ -497,7 +503,7 @@ export default {
           if (response.status == 201) {
             // IF SHERIFFS DEPT, NEED TO CREATE DUPLICATE ENTRY FOR ARRESTS
             if (vm.data.issheriffsdept) {
-              vm.$set(vm.data, "datatype", "arrests");
+              vm.$set(vm.data, "datatype", "Arrests");
               axios
                 .post(
                   "https://pra-tracking-dev.herokuapp.com/api/pra",

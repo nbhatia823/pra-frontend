@@ -1,4 +1,6 @@
 /* exported DEFAULT_VIEWABLE_COLUMNS */
+export const ACCESS_CONTROL = { access: "none" };
+
 export const VIEWABLE_COLUMNS = {
   INITIAL_INFO: {
     county: true,

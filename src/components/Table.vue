@@ -231,6 +231,16 @@
           <span class="tag is-medium">{{ props.row.issheriffsdept ? "Bookings" : "Arrests" }}</span>
         </b-table-column>
         <b-table-column
+          field="issheriffsdept"
+          label="Sheriffs dept."
+          searchable
+          centered
+          :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['issheriffsdept']"
+          sortable
+        >
+          <span class="tag is-medium">{{ props.row.issheriffsdept ? "Bookings" : "Arrests" }}</span>
+        </b-table-column>
+        <b-table-column
           field="datereceived"
           label="Date received"
           centered
@@ -374,12 +384,12 @@ export default {
         : new Date(a.dateofrequest).getTime() -
             new Date(b.dateofrequest).getTime();
     },
-    dateOfRequestSort(a, b, isAsc) {
+    dateReceivedSort(a, b, isAsc) {
       return isAsc
-        ? new Date(b.dateofrequest).getTime() -
-            new Date(a.dateofrequest).getTime()
-        : new Date(a.dateofrequest).getTime() -
-            new Date(b.dateofrequest).getTime();
+        ? new Date(b.datereceived).getTime() -
+            new Date(a.datereceived).getTime()
+        : new Date(a.datereceived).getTime() -
+            new Date(b.datereceived).getTime();
     },
     startDateRequestedSort(a, b, isAsc) {
       return isAsc

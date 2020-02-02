@@ -4,7 +4,8 @@ export const VIEWABLE_COLUMNS = {
     county: true,
     lea: true,
     dateofrequest: true,
-    issheriffsdept: false
+    issheriffsdept: false,
+    datatype: true
   },
   DATES: {
     startdaterequested: true,

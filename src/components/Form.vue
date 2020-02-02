@@ -34,6 +34,12 @@
           <b-field label="Sheriff's dept?">
             <b-checkbox v-model="data.issheriffsdept" id="sheriffsCheckbox"></b-checkbox>
           </b-field>
+          <b-field>
+            <b-select placeholder="Select data type" v-model="data.datatype">
+              <option value="Arrests">Arrests</option>
+              <option value="Bookings">Bookings</option>
+            </b-select>
+          </b-field>
         </b-field>
 
         <b-field grouped>

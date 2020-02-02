@@ -31,13 +31,17 @@
           <b-field expanded label="LEA" :type="{ 'is-success': data.lea }">
             <b-input v-model="data.lea"></b-input>
           </b-field>
-          <b-field label="Sheriff's dept?">
+          <b-field label="Sheriff's deptartment?">
             <b-checkbox v-model="data.issheriffsdept" id="sheriffsCheckbox"></b-checkbox>
           </b-field>
           <b-field>
             <b-select placeholder="Select data type" v-model="data.datatype">
               <option value="Arrests">Arrests</option>
-              <option value="Bookings">Bookings</option>
+              <option
+                v-if="!updating"
+                value="Bookings"
+              >Bookings (select if SD and Arrests entry will be created automatically)</option>
+              <option v-if="updating" value="Bookings">Bookings</option>
             </b-select>
           </b-field>
         </b-field>
@@ -496,7 +500,7 @@ export default {
           if (response.status == 201) {
             // IF SHERIFFS DEPT, NEED TO CREATE DUPLICATE ENTRY FOR ARRESTS
             if (vm.data.issheriffsdept) {
-              vm.$set(vm.data, "issheriffsdept", false);
+              vm.$set(vm.data, "datatype", "arrests");
               axios
                 .post(
                   "https://pra-tracking-dev.herokuapp.com/api/pra",

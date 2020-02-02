@@ -222,29 +222,29 @@
         </b-table-column>
         <b-table-column
           field="issheriffsdept"
-          label="Sheriffs dept."
+          label="SD/PD"
           searchable
           centered
           :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['issheriffsdept']"
           sortable
         >
-          <span class="tag is-medium">{{ props.row.issheriffsdept ? "Bookings" : "Arrests" }}</span>
+          <span class="tag is-medium">{{ props.row.issheriffsdept ? "SD" : "PD" }}</span>
         </b-table-column>
         <b-table-column
-          field="issheriffsdept"
-          label="Sheriffs dept."
+          field="datatype"
+          label="Data type"
           searchable
           centered
-          :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['issheriffsdept']"
+          :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['datatype']"
           sortable
         >
-          <span class="tag is-medium">{{ props.row.issheriffsdept ? "Bookings" : "Arrests" }}</span>
+          <span class="tag is-medium">{{ props.row.datatype }}</span>
         </b-table-column>
         <b-table-column
           field="datereceived"
           label="Date received"
           centered
-          :visible="VIEWABLE_COLUMNS['INITIAL_INFO']['datereceived']"
+          :visible="VIEWABLE_COLUMNS['ANALYSIS']['datereceived']"
           sortable
           :custom-sort="dateReceivedSort"
         >

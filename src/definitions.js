@@ -78,7 +78,7 @@ export const COLUMNS_TO_LABELS = {
   enddatereturned: "End date returned",
   leadmember: "Lead member",
   dateoflastcontact: "Date of last contact",
-  issheriffsdept: "Sheriffs dept.",
+  issheriffsdept: "SD/PD",
   datatype: "Data type",
   datereceived: "Date received",
   variableschecked: "Variables checked",

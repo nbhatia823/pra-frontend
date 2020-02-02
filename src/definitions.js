@@ -10,8 +10,8 @@ export const VIEWABLE_COLUMNS = {
   DATES: {
     startdaterequested: true,
     enddaterequested: true,
-    startdatereturned: true,
-    enddatereturned: true
+    startdatereturned: false,
+    enddatereturned: false
   },
   CURRENT_INFO: {
     leadmember: true,

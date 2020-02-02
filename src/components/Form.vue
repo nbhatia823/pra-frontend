@@ -35,12 +35,9 @@
             <b-checkbox v-model="data.issheriffsdept" id="sheriffsCheckbox"></b-checkbox>
           </b-field>
           <b-field>
-            <b-select placeholder="Select data type" v-model="data.datatype">
+            <b-select label="Data type" placeholder="Select data type" v-model="data.datatype">
               <option value="Arrests">Arrests</option>
-              <option
-                v-if="!updating"
-                value="Bookings"
-              >Bookings (select if SD and Arrests entry will be created automatically)</option>
+              <option v-if="!updating" value="Bookings">Bookings (also creates Arrests entry)</option>
               <option v-if="updating" value="Bookings">Bookings</option>
             </b-select>
           </b-field>
